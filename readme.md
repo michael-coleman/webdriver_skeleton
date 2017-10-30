@@ -44,6 +44,8 @@ browser drivers, e.g.
 * `chai`
 * `chai-as-promised`  
 
+run:
+
     npm install mocha chai chai-as-promised --save-dev
 
 
