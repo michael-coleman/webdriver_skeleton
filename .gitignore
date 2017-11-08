@@ -1,4 +1,22 @@
+# vim: foldmethod=marker
 
 .jshintrc
-
 tags
+Session.vim
+.tern-project
+
+
+# Files related to installing a local webdriver setup  {{{
+# --------------------------------------------------- 
+# The ignore section below is designed to allow for a functioning webdriver
+# setup to be installed in development repos of this webdriver_skeleton
+# project so this boilderplate code can be tested.
+# But to not capture this files into version control so they don't pollute
+# the "consumer" project.
+#
+# The downside is that the job of installing (in dev projects) will have to be
+# performed everytime a new development project is setup.
+# }}}
+node_modules
+package.json
+package-lock.json
