@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+#----------------------------------------------------------
+#
+# file overview
+#
+# This file is used to wrap the main webdriver tests because the test code
+# only does one entire pass for whatever browser was specified by the env_var
+# SELENIUM_BROWSER, so this prints output about which browser the test is for
+# then sets SELENIUM_BROWSER and calls mocha
+#
+# It is expected this will be the main entry point you would call to run 
+# webdriver
+#
+#----------------------------------------------------------
+
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+
+
+cat <<- EOF
+	 
+	Running tests for chrome browser
+	--------------------------------
+EOF
+SELENIUM_BROWSER=chrome  ${script_dir}/node_modules/.bin/mocha \
+	                                            --timeout 20000  **/*.spec.js
+
+cat <<- EOF
+	 
+	Running tests for firefox browser
+	---------------------------------
+	 
+EOF
+SELENIUM_BROWSER=firefox  ${script_dir}/node_modules/.bin/mocha \
+	                                             --timeout 20000 **/*.spec.js
