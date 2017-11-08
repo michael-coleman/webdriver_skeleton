@@ -42,7 +42,7 @@ browser drivers, e.g.
 
 * `mocha`
 * `chai`
-* `chai-as-promised`  
+* `chai-as-promised`  (not currently - but possibly in the future)
 
 run:
 
@@ -68,14 +68,26 @@ file: *package.json*
           "ctags" : ...
       "webdriver" : "tests/webdriver/webdriver_runner",
             "e2e" : "mocha --recursive  tests/webdriverjs -t 20000",
-             "wd" : "./node_modules/.bin/mocha tests/webdriverjs/**/*.spec.js -t 20000"
+             "wd" : "./node_modules/.bin/mocha  **/*.spec.js -t 20000"
     },
 
 
 ### Modify test code as necessary to suit your project
 
+
+
 ### Run it!
 
+Recommended:
+
+    ./path/to/script/webdriver_runner
+
+as this will set the env vars and print a message explaining which browser
+is being tested.  
+Or, if you have added a `scripts` alias:
+
+
     npm run webdriver
+
 
 
