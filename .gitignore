@@ -14,8 +14,8 @@ Session.vim
 # But to not capture this files into version control so they don't pollute
 # the "consumer" project.
 #
-# The downside is that the job of installing (in dev projects) will have to be
-# performed everytime a new development project is setup.
+# The downside is that the job of installing these dev dependencies will have
+# to be performed everytime a new development project is setup.
 # }}}
 node_modules
 package.json
