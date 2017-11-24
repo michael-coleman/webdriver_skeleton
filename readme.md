@@ -22,10 +22,19 @@ Then at that point:
 * Commit the files into the main projects version control.
 
 
-Installation / setup
+Installation / setup - TO BE PERFORMED AT THE PARENT PROJECT LEVEL
 --------------------
 
-This project requires a working install of nodejs and NPM
+IMPORTANT:
+Whilst this repo has a functioning webdriver installed in development repos of
+this webdriver_skeleton project, its `package.json` and `node_modules`
+directory can't be wired up to the "consumer" projects node/npm system 
+package.json etc).
+
+Therefore the job of installing will have to be performed everytime a project
+uses this skeleton.
+
+This project requires a working install of nodejs, NPM and the following:
 
 ### Install webdriverjs itself and browser drivers
 
