@@ -7,11 +7,13 @@
  * 
  * This code will need to be minified with something like 
  * 
- *     npm install --no-save minifier
+ *     npm install --no-save uglify-js
  *  
- * and
- *  
- *    % ./node_modules/.bin/minify  tinker.js
+ * then edit the tinker.js file, and write the uglify-js output to
+ * tinker.min.js
+ *
+ *    w ! ./node_modules/.bin/uglifyjs --output tinker.min.js
+ *
  *
  * then 
  *
@@ -20,6 +22,7 @@
  * * paste at REPL prompt
  */
 var webdriver = require("selenium-webdriver");
+var By = webdriver.By;
  
 var driver;
 function scroll_to_bottom() {
