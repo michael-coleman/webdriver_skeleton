@@ -61,8 +61,8 @@ describe('Helix Demo Form Page', function() {
 				 * confirmations that the page exists.
 				 */
 				expect(h1_text).to.equal('Demo form'); 
-				done();
-			});
+			})
+			.then(done, done);
 	});
 	 
 	it('gives validation error if form submitted with empty email field', 
