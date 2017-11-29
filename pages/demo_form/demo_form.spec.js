@@ -75,24 +75,33 @@ var expect = require('chai').expect;
 var DemoFormPage = require('./DemoForm.po.js');
 var demo_form = new DemoFormPage();
 
-describe('[Helix Demo Form Page] ' + demo_form.config.host +
+describe('[Helix Demo Form Page]  ' + demo_form.config.host +
 			                 'helix/public/demos/demo_form.php', function() {
 	 
-	before(function(done) {
-		 
-		// create new driver instance, which will be available on the new
-		// page object as this.driver
-		demo_form.new_driver()
-		.then(function() {
-			return demo_form.driver.manage().window().setSize(1200, 500);
-		})
-		.then(function() {
-			return demo_form.driver.manage().window().setPosition(0, 0);
-		})
-		.then(function() {
-			done();
-		});
-	}); 
+    before(function(done) {
+         
+        // create new driver instance, which will be available on the new
+        // page object as this.driver
+        demo_form.new_driver()
+        .then(function() {
+            return demo_form.driver.manage().window().setSize(1200, 500);
+        })
+        .then(function() {
+            return demo_form.driver.manage().window().setPosition(0, 0);
+        })
+        .then(function() {
+            if ( process.env.hasOwnProperty("HUMAN") ) {
+
+                // pause for long enough to read the suite title
+                setTimeout(function() {
+                    done();
+                },6000);
+            } else {
+                done();
+            }
+
+        });
+    }); 
 	 
 	after(function(done) {
 		
@@ -133,7 +142,7 @@ describe('[Helix Demo Form Page] ' + demo_form.config.host +
 		});
 	});
 	
-	it('should simply load the correct page when its URL is requested', 
+	it('The page should load when its URL is requested', 
 		                                                    function(done) {
 		
 		demo_form.get(demo_form.config.host +
