@@ -142,15 +142,15 @@ describe('[Helix Demo Form Page]  ' + demo_form.config.host +
 		});
 	});
 	
-	it('Test the page simply loads when requested', 
-		                                                    function(done) {
+	it('Test the page simply loads when requested', function(done) {
 		
 		demo_form.get(demo_form.config.host +
 			                              'helix/public/demos/demo_form.php')
 			.then(() =>  demo_form.get_h1_text() )
 			.then((h1_text) => {
 				 
-				/** check page content by simply checking that the page content
+				/** 
+                 * check page content by simply checking that the page content
 				 * contains the correct title - yes its a bit of an
 				 * oversimplification. However the remaining tests which all
 				 * occur on this page with only serve as additional
