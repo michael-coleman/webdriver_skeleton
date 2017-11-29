@@ -142,7 +142,7 @@ describe('[Helix Demo Form Page]  ' + demo_form.config.host +
 		});
 	});
 	
-	it('The page should load when its URL is requested', 
+	it('Test the page simply loads when requested', 
 		                                                    function(done) {
 		
 		demo_form.get(demo_form.config.host +
@@ -161,7 +161,7 @@ describe('[Helix Demo Form Page]  ' + demo_form.config.host +
 			.then(done, done);
 	});
 	 
-	it('gives validation error if form submitted with empty email field', 
+	it('prompts user "please complete this" if they submit with blank email field', 
 		                                                   function(done) {
 		demo_form.submit_form()
 			.then(() => demo_form.get_email_validation_error_message() )
@@ -171,7 +171,7 @@ describe('[Helix Demo Form Page]  ' + demo_form.config.host +
 			.then(done, done);
 	});
 	 
-	it('advises user to fix email field if they submit a bad email address', 
+	it('Throws HTML5 validation error if user tries to submit with a bad email address', 
 		                                                     function(done) {
 		
 		// assumes the browser is still on this demo form page
