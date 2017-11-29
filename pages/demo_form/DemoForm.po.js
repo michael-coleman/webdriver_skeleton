@@ -14,20 +14,25 @@ function DemoFormPage() {
 	
 	var By = this.webdriver.By;
 	
-	/**
-	 * @return {!Promise<void>} A promise that will be resolved when the sleep
-	 *                          has finished.
-	 */
-	this.submit_form = function() {
-		return self.driver.findElement(By.css('input[type="submit"]'))
-			.then(function(el) {
-				return el.click();
-			})
-			.then(function() {
-				return self.driver.sleep(self.config.pause);
-			});
-	};
-	 
+    /**
+     * @return {!Promise<void>} A promise that will be resolved when the sleep
+     *                          has finished.
+     */
+    this.submit_form = function() {
+        return self.driver.findElement(By.css('input[type="submit"]'))
+            .then(function(el) {
+                return el.click();
+            })
+            .then(function() {
+                if ( process.env.hasOwnProperty('HUMAN') ) {
+                    // add a pause so human can see result of submission
+                    return self.driver.sleep(self.config.pause);
+                } else {
+                    return;
+                }
+            });
+    };
+     
 	/**
 	 * @return {!WebElementPromise} A WebElement that can be used to issue
 	 * commands against the located element. If the element is not found, the
