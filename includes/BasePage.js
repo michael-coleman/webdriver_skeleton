@@ -71,7 +71,11 @@ function BasePage() {
 	this.get = function(url) {
 		return this.driver.get( url )
 			.then(function() {
-				return self.driver.sleep(self.config.pause);
+                if ( process.env.hasOwnProperty("HUMAN") ) {
+                    return self.driver.sleep(self.config.pause);
+                } else {
+                    return;
+                }
 			});
 	};
 	
