@@ -75,7 +75,8 @@ var expect = require('chai').expect;
 var DemoFormPage = require('./DemoForm.po.js');
 var demo_form = new DemoFormPage();
 
-describe('Helix Demo Form Page', function() {
+describe('[Helix Demo Form Page] ' + demo_form.config.host +
+			                 'helix/public/demos/demo_form.php', function() {
 	 
 	before(function(done) {
 		 
@@ -99,6 +100,29 @@ describe('Helix Demo Form Page', function() {
 		done();
 	});
 	 
+    beforeEach(function(done) {
+
+        /**
+         * if the test runner is called like this:
+         *
+         *    HUMAN=true ./webdriver_runner
+         *
+         * this block will print the test and pause before each test
+         */
+        if ( process.env.hasOwnProperty("HUMAN") ) {
+
+            console.log('\n    ' + this.currentTest.title);
+
+            // pause for long enough to read the test title
+            setTimeout(function() {
+                done();
+            },6000);
+        } else {
+            done();
+        }
+	 
+    });
+
 	afterEach(function(done) {
 		// re-request the page so each test has the plain page  and not any
 		// residual state from the previous tests
